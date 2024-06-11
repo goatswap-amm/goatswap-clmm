@@ -1,0 +1,46 @@
+[toolchain]
+anchor_version = "0.29.0"
+solana_version = "1.17.0"
+
+[features]
+seeds = false
+skip-lint = false
+
+[programs.localnet]
+goatswap = "HKwqLZQw1fcnnFds4nkxYAmYK67TvtZ6TnVLUMJviWPL"
+
+[registry]
+url = "https://api.apr.dev"
+
+[provider]
+cluster = "Localnet"
+wallet = "~/.config/solana/id.json"
+
+[scripts]
+test = "ts-mocha -p sdk/tests/tsconfig.json -t 1000000 sdk/tests/**/*.test.ts"
+create_pool = "npx ts-node ./scripts/create-pool.ts"
+deposit = "npx ts-node ./scripts/deposit.ts"
+withdraw = "npx ts-node ./scripts/withdraw.ts"
+find_path_and_swap = "npx ts-node ./scripts/find-path-and-swap.ts"
+create_lookup_table = "npx ts-node ./scripts/create-lookup-table.ts"
+collect_tax = "npx ts-node ./scripts/collect-tax.ts"
+update_tax = "npx ts-node ./scripts/update-tax.ts"
+update_pool_status = "npx ts-node ./scripts/update-pool-status.ts"
+collect_protocol_fee = "npx ts-node ./scripts/collect-protocol-fee.ts"
+collect_fund_fee = "npx ts-node ./scripts/collect-fund-fee.ts"
+init_amm = "npx ts-node ./scripts/init-amm.ts"
+update_amm = "npx ts-node ./scripts/update-amm.ts"
+update_fee_owner = "npx ts-node ./scripts/update-fee-owner.ts"
+transfer_pool_owner = "npx ts-node ./scripts/transfer-pool-owner.ts"
+update_lp_fee = "npx ts-node ./scripts/update-lp-fee.ts"
+
+[test]
+startup_wait = 50000
+shutdown_wait = 2000
+upgradeable = true
+
+[test.validator]
+bind_address = "0.0.0.0"
+url = "https://api.devnet.solana.com"
+ledger = ".anchor/test-ledger"
+rpc_port = 8899

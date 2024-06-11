@@ -1,0 +1,10 @@
+{
+  "name": "goatswap-sdk",
+  "private": false,
+  "workspaces": [
+    "sdk"
+  ],
+  "scripts": {
+    "idl": "anchor build -i $INIT_CWD/sdk/src/artifacts -t $INIT_CWD/sdk/src/artifacts"
+  }
+}
